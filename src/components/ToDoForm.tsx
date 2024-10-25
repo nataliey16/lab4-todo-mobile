@@ -7,6 +7,13 @@ type toDoFormPropTypes = {
 
 function ToDoForm(props: toDoFormPropTypes): React.JSX.Element {
   const [taskText, setTaskText] = useState('');
+
+  const handleAddTask = () => {
+    if (taskText.trim()) {
+      addTask(taskText);
+      setTaskText(''); // Clear input field after adding the task
+    }
+  };
   const {addTask} = props;
   return (
     <View>
@@ -17,7 +24,8 @@ function ToDoForm(props: toDoFormPropTypes): React.JSX.Element {
         onChangeText={text => setTaskText(text)}
       />
       <View style={styles.button}>
-        <Button title="Add Task" onPress={() => addTask(taskText)} />
+        {/* <Button title="Add Task" onPress={() => addTask(taskText)} /> */}
+        <Button title="Add Task" onPress={handleAddTask} />
       </View>
     </View>
   );

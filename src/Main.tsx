@@ -7,12 +7,9 @@ function Main(): React.JSX.Element {
 
   const addTask = (taskText: string) => {
     setTasks([...tasks, taskText]);
-    handleReset;
     console.log(taskText);
   };
-  const handleReset = () => {
-    setTasks([]);
-  };
+
   return (
     <View>
       <ToDoForm addTask={addTask} />
