@@ -24,7 +24,6 @@ function ToDoForm(props: toDoFormPropTypes): React.JSX.Element {
         onChangeText={text => setTaskText(text)}
       />
       <View style={styles.button}>
-        {/* <Button title="Add Task" onPress={() => addTask(taskText)} /> */}
         <Button title="Add Task" onPress={handleAddTask} />
       </View>
     </View>
