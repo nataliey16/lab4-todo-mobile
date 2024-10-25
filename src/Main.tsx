@@ -1,13 +1,17 @@
 import React, {useState} from 'react';
-import {View} from 'react-native';
+import {Alert, View} from 'react-native';
 import ToDoForm from './components/ToDoForm';
 
 function Main(): React.JSX.Element {
   const [tasks, setTasks] = useState<string[]>([]);
 
   const addTask = (taskText: string) => {
-    setTasks([...tasks, taskText]);
-    console.log(taskText);
+    if (tasks.includes(taskText)) {
+      Alert.alert('This task already exists. Please add another task.');
+    } else {
+      setTasks([...tasks, taskText]);
+      console.log(taskText);
+    }
   };
 
   return (
